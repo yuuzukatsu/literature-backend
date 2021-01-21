@@ -9,7 +9,7 @@ logs
 *.log
 
 # dotenv
-.env
+# .env
 .env.test
 
 public/
