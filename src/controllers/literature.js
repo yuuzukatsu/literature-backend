@@ -17,7 +17,7 @@ exports.getLiteratures = async (req, res) => {
           },
           {
             title: {
-              [Op.iLike]: `%${title || ''}%`,
+              [Op.like]: `%${title || ''}%`,
             },
           },
           {
