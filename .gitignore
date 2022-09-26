@@ -11,6 +11,7 @@ logs
 # dotenv
 # .env
 .env.test
+.env.testt
 
 public/
 api.http
