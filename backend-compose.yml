@@ -4,7 +4,7 @@ services:
   backend-1:
     container_name: literature-backend-1
     image: yuuzukatsu/literature-backend:latest
-    restart: unless-stopped
+    restart: always
     ports:
       - '5000:5000'
     environment:
@@ -19,7 +19,7 @@ services:
   backend-2:
     container_name: literature-backend-2
     image: yuuzukatsu/literature-backend:latest
-    restart: unless-stopped
+    restart: always
     ports:
       - '5001:5000'
     environment:
