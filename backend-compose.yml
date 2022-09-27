@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  
+  backend-1:
+    container_name: literature-backend-1
+    image: yuuzukatsu/literature-backend:latest
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+    environment:
+      DATABASE_URL: postgresql://literatureuser:literaturepasswd@database:5432/literature
+      NODE_ENV: production
+    networks:
+      - literature-network
+    command: >
+      sh -c "npx sequelize-cli db:migrate --env production &&
+             node server.js"
+  
+  backend-2:
+    container_name: literature-backend-2
+    image: yuuzukatsu/literature-backend:latest
+    restart: unless-stopped
+    ports:
+      - '5001:5000'
+    environment:
+      DATABASE_URL: postgresql://literatureuser:literaturepasswd@database:5432/literature
+      NODE_ENV: production
+    networks:
+      - literature-network
+    command: >
+      sh -c "npx sequelize-cli db:migrate --env production &&
+             node server.js"
+
+networks:
+  literature-network:
+    name: literature-network
+    external: true
